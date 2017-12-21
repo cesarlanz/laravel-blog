@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
-    protected $table = 'tag';
+    protected $table = 'tags';
 
     protected $fillable = ['name'];
 
@@ -14,4 +14,10 @@ class Tag extends Model
     {
         return $this->belongsToMany('App\Article')->withTimestamps();
     }
+
+    public function scopeSearch($query, $name)
+    {
+        return $query->where('name', 'LIKE', '%' . $name . '%');
+    }
+
 }

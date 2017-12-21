@@ -83,7 +83,7 @@ class CategoriesController extends Controller
         $category->save();
 
         Flash::warning('La categoria ' . $category->name . ' a sido editada con exito!');
-        return redirect()->route('categories.index');
+        return redirect()->route('admin.categories.index');
     }
 
     /**
@@ -99,6 +99,6 @@ class CategoriesController extends Controller
         $category->delete();
 
         Flash::error('La categoria ' . $category->name . ' a sido borrada con exito!');
-        return redirect()->route('categories.index');
+        return redirect()->route('admin.categories.index');
     }
 }

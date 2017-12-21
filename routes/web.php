@@ -20,14 +20,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/', function () {
         return view('welcome');
     })->name('admin.index');
-    
-    Route::get('users/{id}/destroy', 'UsersController@destroy')->name('admin.users.destroy');
+
     Route::resource('users', 'UsersController', ['as' => 'admin']);
-    
-    Route::get('categories/{id}/destroy', 'CategoriesController@destroy')->name('admin.categories.destroy');
+    Route::get('users/{id}/destroy', 'UsersController@destroy')->name('admin.users.destroy');
+
     Route::resource('categories', 'CategoriesController', ['as' => 'admin']);
-    
-    
+    Route::get('categories/{id}/destroy', 'CategoriesController@destroy')->name('admin.categories.destroy');
+
+    Route::resource('tags', 'TagsController', ['as' => 'admin']);
+    Route::get('tags/{id}/destroy', 'TagsController@destroy')->name('admin.tags.destroy');
+
 });
 
 //Auth::routes();

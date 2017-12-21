@@ -45,7 +45,7 @@ class UsersController extends Controller
 
         Flash::success('Se ha registrado el usuario ' . $user->name . ' de forma existosa!');
 
-        return redirect()->route('users.index');
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -93,7 +93,7 @@ class UsersController extends Controller
         $user->save();
 
         Flash::warning('El usuario ' . $user->name . ' a sido editado con exito!');
-        return redirect()->route('users.index');
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -109,6 +109,6 @@ class UsersController extends Controller
         $user->delete();
 
         Flash::error('El usuario ' . $user->name . ' a sido borrado de forma exitosa!');
-        return redirect()->route('users.index');
+        return redirect()->route('admin.users.index');
     }
 }

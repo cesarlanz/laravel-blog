@@ -20,7 +20,7 @@
         <li><a href="{{ route('admin.categories.index') }}">Categorias</a></li>
         <li><a href="#">Articulos</a></li>
         <li><a href="#">Imagenes</a></li>
-        <li><a href="#">Tags</a></li>
+        <li><a href="{{ route('admin.tags.index') }}">Tags</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Pagina principal</a></li>
