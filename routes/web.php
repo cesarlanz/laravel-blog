@@ -28,7 +28,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('categories/{id}/destroy', 'CategoriesController@destroy')->name('admin.categories.destroy');
 
     Route::resource('tags', 'TagsController', ['as' => 'admin']);
-    Route::get('tags/{id}/destroy', 'TagsController@destroy')->name('admin.tags.destroy');
+    Route::get('tags/{id}/destroy', 'TagsController@destroy')->name('admin.articles.destroy');
+
+    Route::resource('articles', 'ArticlesController', ['as' => 'admin']);
+    Route::get('articles/{id}/destroy', 'ArticlesController@destroy')->name('admin.articles.destroy');
 
 });
 
