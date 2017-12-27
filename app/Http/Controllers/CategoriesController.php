@@ -43,7 +43,7 @@ class CategoriesController extends Controller
         //dd($category);
         Flash::success('La categoria ' . $category->name . ' ha sido creada con exito!');
 
-        return redirect()->route('categories.index');
+        return redirect()->route('admin.categories.index');
     }
 
     /**
