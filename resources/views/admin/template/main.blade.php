@@ -8,6 +8,8 @@
     <title>@yield('title', 'Default') | Panel de Administración</title>
 
     <link href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('plugins/chosen/chosen.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('plugins/trumbowyg/ui/trumbowyg.min.css') }}" rel="stylesheet">
 
   </head>
   <body>
@@ -21,5 +23,10 @@
 
     <script src="{{ asset('plugins/jquery/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('plugins/chosen/chosen.jquery.js') }}"></script>
+    <script src="{{ asset('plugins/trumbowyg/trumbowyg.min.js') }}"></script>
+
+    @yield('js')
+
   </body>
 </html>

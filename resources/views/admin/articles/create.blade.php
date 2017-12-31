@@ -13,17 +13,17 @@
 
         <div class="form-group">
             {!! Form::label('category_id', 'Categoria') !!}
-            {!! Form::select('category_id', $categories, null, ['class' => 'form-control', 'placeholder' => 'Seleccione una opción', 'required']) !!}
+            {!! Form::select('category_id', $categories, null, ['class' => 'form-control select-category', 'required']) !!}
         </div>
 
         <div class="form-group">
             {!! Form::label('content', 'Contenido') !!}
-            {!! Form::textarea('content', null, ['class' => 'form-control', 'required']) !!}
+            {!! Form::textarea('content', null, ['class' => 'form-control textarea-content', 'required']) !!}
         </div>
 
         <div class="form-group">
             {!! Form::label('tags', 'Tags') !!}
-            {!! Form::select('tags[]', $tags, null, ['class' => 'form-control', 'multiple', 'required']) !!}
+            {!! Form::select('tags[]', $tags, null, ['class' => 'form-control select-tags', 'multiple', 'required']) !!}
         </div>
 
         <div class="form-group">
@@ -37,4 +37,19 @@
 
     {!! Form::close() !!}
 
+@endsection
+
+@section('js')
+    <script>
+        $(".select-tags").chosen({
+            placeholder_text_multiple: "Seleccione un maximo de 3 tags",
+            no_results_text: "No se encontraron estos tags"
+        });
+
+        $(".select-category").chosen({
+            placeholder_text_single: "Seleccione una opción"
+        });
+
+        $('.textarea-content').trumbowyg();
+    </script>
 @endsection

@@ -11,14 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     Route::get('/', function () {
-        return view('welcome');
+        return view('admin.index');
     })->name('admin.index');
 
     Route::resource('users', 'UsersController', ['as' => 'admin']);
@@ -33,6 +29,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('articles', 'ArticlesController', ['as' => 'admin']);
     Route::get('articles/{id}/destroy', 'ArticlesController@destroy')->name('admin.articles.destroy');
 
+    Route::get('images', 'ImagesController@index')->name('admin.images.index');
+
 });
 
 //Auth::routes();
@@ -41,6 +39,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 Route::get('admin/auth/login', 'Auth\LoginController@showLoginForm')->name('admin.auth.login');
 Route::post('admin/auth/login', 'Auth\LoginController@login')->name('admin.auth.login');
 Route::get('admin/auth/logout', 'Auth\LoginController@logout')->name('admin.auth.logout');
+
 
 // Registration Routes...
 /*
@@ -56,4 +55,6 @@ $this->get('admin/password/reset/{token}', 'Auth\ResetPasswordController@showRes
 $this->post('admin/password/reset', 'Auth\ResetPasswordController@reset');
 */
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', 'FrontController@index')->name('front.index');
