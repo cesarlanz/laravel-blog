@@ -58,3 +58,7 @@ $this->post('admin/password/reset', 'Auth\ResetPasswordController@reset');
 //Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'FrontController@index')->name('front.index');
+
+Route::get('categories/{name}', 'FrontController@searchCategory')->name('front.search.category');
+
+Route::get('tags/{name}', 'FrontController@searchTag')->name('front.search.tag');
