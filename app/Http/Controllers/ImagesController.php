@@ -15,11 +15,7 @@ class ImagesController extends Controller
     public function index()
     {
         $images = Image::all();
-        //dd($image);
         return view('admin.images.index')
             ->with('images', $images);
-
-    }
-
-    
+    }    
 }
